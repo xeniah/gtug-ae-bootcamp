@@ -1,0 +1,17 @@
+{
+  "files": {
+    "js/gtug-ae.js": [
+      "js/libs/namespace-plus.js",
+      "js/libs/underscore.js",
+      "js/libs/jquery.js",
+      "js/libs/backbone.js",
+      "js/libs/json2.js",
+      "js/collections/todos.js",
+      "js/models/todo.js",
+      "js/views/app.js",
+      "js/views/todos.js",
+      "js/main.js"
+    ]
+  },
+  "minify": false
+}
