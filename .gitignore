@@ -5,3 +5,4 @@ appengine/*
 gtugenv/*
 activate
 .DS_Store
+app/app.json
