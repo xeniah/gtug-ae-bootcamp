@@ -91,7 +91,7 @@ DOC_ID_REGEX = r"[a-zA-Z0-9_-][a-zA-Z0-9\._-]{,99}"
 ERROR_FILENAME = 'pferror.html'
 IGNORE_FILENAMES = ('pf.py', 'pf', PF_FILENAME, OPTIONS_FILENAME, ERROR_FILENAME, MAKE_FILENAME,
                     '.*', '*~', '#*#', '*.bak', '*.rej', '*.orig')
-LOCAL_COMMANDS = ['dir', 'offline', 'info', 'compile', 'make', 'config']
+LOCAL_COMMANDS = ['dir', 'offline', 'info', 'compile', 'make', 'configure']
 METAFILE_REMOVE = ('sha1', 'size', 'modified', 'created', 'docid')
 SHA_EXCLUDED = METAFILE_REMOVE + ('application',)
 
