@@ -1,10 +1,10 @@
 #!/bin/bash
-BINDIR=$(cd `dirname $0` && pwd)
-PROJDIR=`dirname $BINDIR`
+BIN_DIR=$(cd `dirname $0` && pwd)
+PROJ_DIR=`dirname $BIN_DIR`
 DOWN_DIR="$HOME/Downloads"
-AE_DIR=$PROJDIR/appengine
+AE_DIR=$PROJ_DIR/appengine
 AE_BIN=$AE_DIR/google_appengine
-ENV_DIR=$PROJDIR/gtugenv
+ENV_DIR=$PROJ_DIR/gtugenv
 
 AE_VERSION="1.6.1"
 
@@ -39,7 +39,7 @@ function download_zip {
     unzip -q $DOWN_DIR/$FILE -d $DEST_PATH
 }
 
-cd $PROJDIR
+cd $PROJ_DIR
 
 if ! type python2.5 > /dev/null; then
     echo "You need Python 2.5 to use App Engine."
@@ -71,15 +71,18 @@ if [ "$REPLY" = "y" ]; then
     rm -rf $ENV_DIR
     virtualenv --python=python2.5 $ENV_DIR
     ln -f -s $ENV_DIR/bin/activate
+    ln -f -s $PROJ_DIR/bin/* $ENV_DIR/bin
+
     source activate
-    pip install PIL
+    pip install PIL simplejson
 fi
 
 read -p "Install App Engine ($AE_VERSION)? (y/n): "
 if [ "$REPLY" = "y" ]; then
     rm -rf appengine
     download_zip http://googleappengine.googlecode.com/files/google_appengine_$AE_VERSION.zip $AE_DIR
-    ln -f -s $AE_BIN/*.py $ENV_DIR/bin
 fi
+
+ln -f -s $AE_BIN/*.py $ENV_DIR/bin
 
 echo "Type 'source activate' to use this environment"
