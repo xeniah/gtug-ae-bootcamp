@@ -6,3 +6,5 @@ gtugenv/*
 activate
 .DS_Store
 app/app.json
+app/js/gtug-ae.js
+app/js/gtug-ae.min.js
