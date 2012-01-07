@@ -1,19 +1,15 @@
-define([
-  'jquery',
-  'underscore', 
-  'backbone',
-  'collections/todos',
-  'views/todos',
-  'text!templates/stats.html'
-  ], function($, _, Backbone, Todos, TodoView, statsTemplate){
-  var AppView = Backbone.View.extend({
+namespace.module('todo.views.app', function(exports, require) {
+  var Todos = require('todo.collections.todos').Todos;
+  var TodoView = require('todo.views.todos').TodoView;
+
+  exports.AppView = Backbone.View.extend({
 
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
     el: $("#todoapp"),
 
     // Our template for the line of statistics at the bottom of the app.
-    statsTemplate: _.template(statsTemplate),
+    statsTemplate: _.template($('#statsTemplate').html()),
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
@@ -98,5 +94,4 @@ define([
     }
 
   });
-  return AppView;
 });
